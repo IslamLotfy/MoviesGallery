@@ -13,17 +13,21 @@ import javax.inject.Singleton
 class UseCasesModule {
     @Singleton
     @Provides
-    fun provideGetTopRatedUseCase(repository: Repository) = GetTopRatedMoviesUseCase(repository = repository)
+    fun provideGetTopRatedUseCase(repository: Repository) =
+        GetTopRatedMoviesUseCase(repository = repository)
 
     @Singleton
     @Provides
-    fun provideGetMovieDetailsUseCase(repository: Repository) = GetMovieDetailsUseCase(repository = repository)
+    fun provideGetMovieDetailsUseCase(repository: Repository) =
+        GetMovieDetailsUseCase(repository = repository)
 
     @Singleton
     @Provides
-    fun provideGetRecommendedMoviesUseCase(repository: Repository) = GetRecommendedMoviesUseCase(repository = repository)
+    fun provideGetRecommendedMoviesUseCase(repository: Repository) =
+        GetRecommendedMoviesUseCase(repository = repository)
 
     @Singleton
     @Provides
-    fun provideGetSimilarMoviesUseCase(repository: Repository) = GetSimilarMoviesUseCase(repository = repository)
+    fun provideGetSimilarMoviesUseCase(repository: Repository) =
+        GetSimilarMoviesUseCase(repository = repository)
 }

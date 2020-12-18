@@ -2,7 +2,6 @@ package com.example.moviesgallery.data.injection
 
 import dagger.Module
 import dagger.Provides
-import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
@@ -10,9 +9,7 @@ import javax.inject.Singleton
 
 @Module
 class HttpModule {
-    @Singleton
-    @Provides
-    fun provideApiKeyInterceptor() = ApiKeyInterceptor()
+
 
     @Singleton
     @Provides

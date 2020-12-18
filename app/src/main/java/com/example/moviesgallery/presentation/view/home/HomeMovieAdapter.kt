@@ -7,7 +7,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesgallery.R
 import com.example.moviesgallery.databinding.MovieListItemBinding
-import com.example.moviesgallery.domain.entities.MovieEntity
 import com.example.moviesgallery.presentation.models.MovieUIModel
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
@@ -37,19 +36,21 @@ class HomeMovieAdapter : RecyclerView.Adapter<HomeMovieAdapter.ViewHolder>() {
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         viewHolder.binding.movieTitle.text = movies[position].title
-        Handler().postDelayed(Runnable {  Picasso.get()
-            .load("https://image.tmdb.org/t/p/w200/${movies[position].posterPath}")
-            .into(viewHolder.binding.movieImage, object : Callback {
-                override fun onSuccess() {
-                    viewHolder.binding.imageProgress.hide()
-                }
+        Handler().postDelayed(Runnable {
+            Picasso.get()
+                .load("https://image.tmdb.org/t/p/w200/${movies[position].posterPath}")
+                .into(viewHolder.binding.movieImage, object : Callback {
+                    override fun onSuccess() {
+                        viewHolder.binding.imageProgress.hide()
+                    }
 
-                override fun onError(e: Exception?) {
-                    viewHolder.binding.imageProgress.hide()
-                }
+                    override fun onError(e: Exception?) {
+                        viewHolder.binding.imageProgress.hide()
+                    }
 
-            }
-            )},1000)
+                }
+                )
+        }, 1000)
 
         viewHolder.binding.itemView.setOnClickListener {
             onMovieClickListener?.setOnMovieClickListener(movies[position].id)

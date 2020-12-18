@@ -2,14 +2,11 @@ package com.we.movieapp.ui.viewmodel
 
 
 import androidx.lifecycle.ViewModel
-import io.reactivex.Flowable
 import io.reactivex.Scheduler
 import io.reactivex.Single
-import io.reactivex.SingleObserver
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
-import org.reactivestreams.Subscription
 
 /**
  * Created at Tito on 3/16/19
@@ -27,9 +24,10 @@ constructor(
     private val observeOn: Scheduler = baseSchedulerProvider.ui()
     private val disposables: CompositeDisposable = CompositeDisposable()
 
-    protected fun <T> execute(loadingConsumer: Consumer<Disposable>, successConsumer: Consumer<T>,
-                              throwableConsumer: Consumer<Throwable>,
-                              useCase: Single<T>
+    protected fun <T> execute(
+        loadingConsumer: Consumer<Disposable>, successConsumer: Consumer<T>,
+        throwableConsumer: Consumer<Throwable>,
+        useCase: Single<T>
     ) {
         val observable = useCase
             .doOnSubscribe(loadingConsumer)

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CC666565"
@@ -11,16 +10,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="?android:selectableItemBackground"
+        android:orientation="vertical"
         android:padding="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/movie_container"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="2dp">
+            android:padding="2dp"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/movie_title"
@@ -30,9 +29,9 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="@id/movie_more_btn"
+                app:layout_constraintEnd_toStartOf="@id/movie_more_btn"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/movie_more_btn"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/movie_more_btn"
@@ -41,8 +40,8 @@
                 android:background="@color/colorPrimary"
                 android:text="@string/more"
                 android:textColor="#FFF"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/movie_recycler_view_list"
@@ -51,40 +50,39 @@
                 android:layout_marginTop="14dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/movie_more_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:listitem="@layout/movie_list_item"/>
+                app:layout_constraintTop_toBottomOf="@id/movie_more_btn"
+                tools:listitem="@layout/movie_list_item" />
 
             <ProgressBar
                 android:id="@+id/movie_loading"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:visibility="gone"
-                app:layout_constraintTop_toTopOf="@id/movie_recycler_view_list"
+                app:layout_constraintBottom_toBottomOf="@id/movie_recycler_view_list"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/movie_recycler_view_list"
-                tools:visibility="visible"/>
+                app:layout_constraintTop_toTopOf="@id/movie_recycler_view_list"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/movie_error"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:gravity="center"
                 android:text="@string/no_results"
                 android:textSize="24sp"
                 android:visibility="gone"
-                android:gravity="center"
-                android:layout_margin="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="visible"/>
+                tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

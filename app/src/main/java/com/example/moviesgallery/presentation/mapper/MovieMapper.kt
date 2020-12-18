@@ -3,7 +3,7 @@ package com.example.moviesgallery.presentation.mapper
 import com.example.moviesgallery.domain.entities.MovieEntity
 import com.example.moviesgallery.presentation.models.MovieUIModel
 
-class MovieMapper: DomainToPresentationMapper<MovieEntity, MovieUIModel> {
+class MovieMapper : DomainToPresentationMapper<MovieEntity, MovieUIModel> {
     override fun mapFromDomnainToPresnetation(model: MovieEntity): MovieUIModel {
         return MovieUIModel(
             adult = model.adult,
